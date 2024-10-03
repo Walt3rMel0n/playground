@@ -36,8 +36,12 @@ class ThreadManager(models.Manager):
 class Thread(models.Model):
     users = models.ManyToManyField(User, related_name='threads')
     messages = models.ManyToManyField(Message)
+    updated = models.DateTimeField(auto_now=True)
 
     objects = ThreadManager()
+
+    class Meta:
+        ordering = ['-updated']
 
 # metedo para no incluir un tercer usuaio en el hilo ya hecho
 def messages_changed(sender, **kwargs):
