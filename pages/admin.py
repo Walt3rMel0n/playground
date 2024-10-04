@@ -11,3 +11,4 @@ class PageAdmin(admin.ModelAdmin):
         }
 
 admin.site.register(Page, PageAdmin)
+
